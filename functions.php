@@ -275,7 +275,7 @@ if ( ! function_exists( 'ristorantipiceni_content_nav' ) ) :
 function ristorantipiceni_content_nav( $nav_id ) {
 	global $wp_query;
 
-	if ( $wp_query->max_num_pages > 1 ) : ?>
+	if ( $wp_query->max_num_pages > 1 ) { ?>
 		<nav id="<?php echo $nav_id; ?>">
             <?php if(is_tax( 'categorie_evento' )){ ?>
             <div class="nav-previous"><?php previous_posts_link( __( '<span class="meta-nav">&larr;</span> Precedente', 'rp' ) ); ?></div>
@@ -288,7 +288,7 @@ function ristorantipiceni_content_nav( $nav_id ) {
     <div class="nav-next"><?php previous_posts_link( __( 'Successivo <span class="meta-nav">&rarr;</span>', 'rp' ) ); ?></div>
     <?php } ?>
 		</nav><!-- #nav-above -->
-	<?php endif;
+	<?php }
 }
 endif; // ristorantipiceni_content_nav
 

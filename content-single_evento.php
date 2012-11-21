@@ -14,7 +14,7 @@
             the_post_thumbnail( 'slider-thumb-feature', $default_attr );
             ?>
         </div>
-		<h2 class="entry-title"><?php the_title(); ?></h2>
+		<h2 class="entry-title"><?php the_title();?></h2>
 
         <ul class="info-date left">
             <?php if(get_post_meta($post->ID,'rp_start_datetime_saved',true)){ ?>

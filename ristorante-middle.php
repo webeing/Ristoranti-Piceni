@@ -113,18 +113,18 @@
         <a id="service-rp" class="btn brown" href="#dialog-service-rp" title="<?php _e('Scopri i servizi... ', 'rp') ;?>"><img src="<?php bloginfo('template_url') ?>/images/info.png" alt="<?php _e('Scopri i servizi... ', 'rp') ;?>"/> <?php  _e( 'Scopri i servizi... ', 'rp' ) ;?></a>
         <div id="dialog-service-rp">
             <ul>
-                <?php $rp_terms = get_terms("servizio", array(
-                    'orderby'    => 'count',
-                    'hide_empty' => 0) );
-
-                    foreach ( $rp_terms as $rp_term){ ?>
+                <?php $rp_terms = wp_get_post_terms($post->ID, 'servizio');
+                    if(count($rp_terms)>0){
+                    foreach ( $rp_terms as $rp_term){
+                        ?>
                                <li>
                                 <img src="<?php bloginfo('template_url') ?>/images/services/<?php echo $rp_term->name; ?>.png"/>
                                 <a rel="<?php echo $rp_term->name; ?>" href="<?php bloginfo('url') ?>/servizio/<?php echo $rp_term->name; ?>/"><?php echo $rp_term->name; ?></a>
                                </li>
-                    <?php
-                    
-                } ?>
+                    <?php }
+                    } else {?>
+                                <?php _e( 'Nessun servizio specificato', 'rp' );?>
+                <?php } ?>
             </ul>
         </div>
     </div>

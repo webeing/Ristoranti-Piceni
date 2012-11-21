@@ -55,26 +55,34 @@ elseif(get_post_meta($post->ID,'rp_custom_header_image_id',true)){
     </div>
 <?php }
 
-elseif (is_tax(SLUG_EVENTI_NEL_TERRITORIO ) ) { ?>
+elseif (is_tax('categorie_evento', 	'Eventi nel Territorio' )|| (is_singular( 'rp_eventi' ))){ ?>
 
             <div id="thumb-gallery">
-            <img class="attachment-slider-feature-secondary" width="925" height="230" title="Uploaded image Ristoranti Piceni Header Thumb" alt="Uploaded image Ristoranti Piceni Header Thumb" src="<?php bloginfo('url');?>/wp-content/uploads/2012/10/default-thumb-rp.png">
+            <img class="attachment-slider-feature-secondary" width="925" height="230" title="Uploaded image Ristoranti Piceni Header Thumb" alt="Uploaded image Ristoranti Piceni Header Thumb" src="<?php bloginfo('url');?>/wp-content/uploads/2012/11/Eventi-nel-territorio.jpg">
             </div>
 
-<?php } elseif (is_tax(SLUG_EVENTI_SPECIALI)) {?>
+<?php } elseif (is_tax('categorie_evento','Serate Speciali')|| (is_singular( 'locali' ))) {?>
             <div id="thumb-gallery">
-            <img class="attachment-slider-feature-secondary" width="925" height="230" title="Uploaded image Ristoranti Piceni Header Thumb" alt="Uploaded image Ristoranti Piceni Header Thumb" src="<?php bloginfo('url');?>/wp-content/uploads/2012/10/default-thumb-rp.png">
+            <img class="attachment-slider-feature-secondary" width="925" height="230" title="Uploaded image Ristoranti Piceni Header Thumb" alt="Uploaded image Ristoranti Piceni Header Thumb" src="<?php bloginfo('url');?>/wp-content/uploads/2012/11/serate-speciali.jpg">
             </div>
         <?php }
 
 elseif (is_category('blog')) {?>
             <div id="thumb-gallery">
-            <img class="attachment-slider-feature-secondary" width="925" height="230" title="Uploaded image Ristoranti Piceni Header Thumb" alt="Uploaded image Ristoranti Piceni Header Thumb" src="<?php bloginfo('url');?>/wp-content/uploads/2012/11/PICENO3.jpg">
+            <img class="attachment-slider-feature-secondary" width="925" height="230" title="Uploaded image Ristoranti Piceni Header Thumb" alt="Uploaded image Ristoranti Piceni Header Thumb" src="<?php bloginfo('url');?>/wp-content/uploads/2012/11/blog.jpg">
             </div>
         <?php }
 else{?>
             <div id="thumb-gallery">
-            <img class="attachment-slider-feature-secondary" width="925" height="230" title="Uploaded image Ristoranti Piceni Header Thumb" alt="Uploaded image Ristoranti Piceni Header Thumb" src="<?php bloginfo('url');?>/wp-content/uploads/2012/11/PICENO41.jpg">
+                <?php
+                $thumb_id = get_option('_rp_attached_header_image');
+                $default_attr = array(
+                    'class'	=> "attachment",
+                );
+
+
+                echo wp_get_attachment_image( $thumb_id, 'slider-feature-secondary', $default_attr );
+                ?>
             </div>
  <?php }?>
 
